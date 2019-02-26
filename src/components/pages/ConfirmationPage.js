@@ -37,6 +37,14 @@ class ConfirmationPage extends Component {
                                 <Link to = "/dashboard">Go to your dashboard </Link>
                         </Message.Content>
                 </Message>}
+
+                {!loading && !success && 
+                    <Message negative icon>
+                        <Icon name = "warning sign"/>
+                        <Message.Content>
+                            <Message.Header>Invalid Token </Message.Header>
+                        </Message.Content>
+                </Message>}
             </div>
         )
     }

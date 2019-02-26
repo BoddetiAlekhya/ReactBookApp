@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import decode from 'jwt-decode'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {createStore,applyMiddleware} from 'redux'
@@ -20,7 +21,8 @@ const store = createStore(
 );
 
 if(localStorage.bookwormJWT){
-    const user = {token: localStorage.bookwormJWT};
+    const payload = decode(localStorage.bookwormJWT);
+    const user = {token: localStorage.bookwormJWT, email: payload.email, confirmed: payload.confirmed};
     store.dispatch(userLoggedIn(user));
 }
 
