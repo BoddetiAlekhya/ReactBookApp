@@ -90,7 +90,7 @@ class BookForm extends Component {
                     type="number" 
                     id="pages" 
                     name="pages" placeholder="Pages" 
-                    value={data.pages} 
+                    value={data.pages ? data.pages : 0} 
                     onChange={this.onChangeNumber} />
                     {errors.pages && <InlineError text={errors.pages} />}
                 </Form.Field>
@@ -114,7 +114,7 @@ BookForm.propTypes = {
         goodreadsId: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         authors: PropTypes.string.isRequired,
-        pages: PropTypes.number.isRequired
+        pages: PropTypes.number
     }).isRequired
 }
 
